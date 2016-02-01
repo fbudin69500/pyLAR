@@ -54,9 +54,11 @@ def writeTxtIntoList(filename, content):
             f.write(i + '\n')
 
 
-def containsRequirements(config, requirements, configFileName=""):
+def containsRequirements(config, requirements, configFileName=None):
     if configFileName:
          configFileName = " in " + configFileName
+    else:
+        configFileName = ""
     for i in requirements:
         if not hasattr(config, i):
             print "Requires "+i+" to be set"+configFileName
