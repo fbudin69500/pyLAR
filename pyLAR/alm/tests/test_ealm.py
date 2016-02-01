@@ -19,7 +19,7 @@
 
 # #!/usr/bin/env python
 
-"""ialm_test.py
+"""ealm_test.py
 """
 
 
@@ -40,7 +40,8 @@ class EALMTesting(unittest.TestCase):
     def setUp(self):
         """Load data.
         """
-        self._data = np.genfromtxt("im_outliers.dat");
+        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "im_outliers.dat")
+        self._data = np.genfromtxt(file_path)
 
 
     def test_recover(self):
@@ -49,7 +50,8 @@ class EALMTesting(unittest.TestCase):
         # run recovery
         lr, sp, _ = ealm.recover(self._data, None)
         # load baseline (no outliers)
-        baseline = np.genfromtxt("im_baseline.dat")
+        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "im_baseline.dat")
+        baseline = np.genfromtxt(file_path)
         # Frobenius norm between recovered mat. and baseline
         d = np.linalg.norm(np.round(lr)-baseline, ord='fro')
         self.assertTrue(np.allclose(d,0.0))
