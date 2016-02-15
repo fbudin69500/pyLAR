@@ -1,4 +1,6 @@
-# Library: pyLAR
+#!/usr/bin/env python
+
+#  Library: pyLAR
 #
 # Copyright 2014 Kitware Inc. 28 Corporate Drive,
 # Clifton Park, NY, 12065, USA.
@@ -17,8 +19,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#!/usr/bin/env python
-"""ialm_test.py
+
+"""test_ialm.py
 """
 
 

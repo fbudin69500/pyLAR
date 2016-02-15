@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # Library: pyLAR
 #
 # Copyright 2014 Kitware Inc. 28 Corporate Drive,
