@@ -30,7 +30,7 @@ Requires to build the following toolkits first:
     * WarpImageMultiTransform (ANTS package)
     * CreateJacobianDeterminantImage (ANTS package)
     * BRAINSDemonWarp (BRAINSTools package)
-    * ComposeMultiTransform (BRAINSTools package)
+    * ComposeMultiTransform (ANTS package)
     * BSplineDeformableRegistration
     * BRAINSResample (BRAINSTools package)
     * AverageImages (ANTS package)
