@@ -50,7 +50,7 @@ def readTxtIntoList(filename):
 
 def writeTxtIntoList(filename, content):
     with open(filename,'w') as f:
-        for i in filename:
+        for i in content:
             f.write(i + '\n')
 
 
