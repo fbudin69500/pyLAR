@@ -31,7 +31,7 @@ Requires to build the following toolkits first:
     * CreateJacobianDeterminantImage (ANTS package)
     * BRAINSDemonWarp (BRAINSTools package)
     * ComposeMultiTransform (ANTS package)
-    * BSplineDeformableRegistration
+    * BSplineDeformableRegistration (Slicer module)
     * BRAINSResample (BRAINSTools package)
     * AverageImages (ANTS package)
     * InvertDeformationField [1]
