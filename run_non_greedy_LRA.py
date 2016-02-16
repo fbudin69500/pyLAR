@@ -91,10 +91,6 @@ def setup_and_run(config, software, im_fns, configFN=None, configSoftware=None, 
     """
     pyLAR.nglra.check_requirements(config, software, configFN, configSoftware, True)
     result_dir = config.result_dir
-    gridSize = [0, 0, 0]
-    REGISTRATION_TYPE = config.REGISTRATION_TYPE
-    if REGISTRATION_TYPE == 'BSpline':
-        gridSize = config.gridSize
     # For reproducibility: save all parameters into the result dir
     savedFileName = lambda name, default: os.path.basename(name) if name else default
     pyLAR.saveConfiguration(os.path.join(result_dir, savedFileName(configFN, 'Config.txt')), config)
@@ -105,7 +101,7 @@ def setup_and_run(config, software, im_fns, configFN=None, configSoftware=None, 
     shutil.copy(currentPyFile, result_dir)
     if not(hasattr(config, "verbose") and config.verbose):
         sys.stdout = open(os.path.join(result_dir, 'RUN.log'), "w")
-    pyLAR.nglra.run(config, software, im_fns, gridSize, False, True)
+    pyLAR.nglra.run(config, software, im_fns, False, True)
 
 
 def main(argv=None):

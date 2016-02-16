@@ -237,7 +237,7 @@ def _runIteration(vector_length, level, currentIter, config, im_fns, sigma, grid
     return sparsity, sum_sparse
 
 
-def run(config, software, im_fns, gridSize, check=True, verbose=True):
+def run(config, software, im_fns, check=True, verbose=True):
     """unbiased low-rank atlas creation from a selection of images"""
     if check:
         check_requirements(config, software, verbose=verbose)
@@ -251,6 +251,10 @@ def run(config, software, im_fns, gridSize, check=True, verbose=True):
     NUM_OF_ITERATIONS_PER_LEVEL = config.NUM_OF_ITERATIONS_PER_LEVEL
     NUM_OF_LEVELS = config.NUM_OF_LEVELS  # Multi-scale blurring (coarse-to-fine)
     REGISTRATION_TYPE = config.REGISTRATION_TYPE
+    gridSize = [0, 0, 0]
+    if REGISTRATION_TYPE == 'BSpline':
+        gridSize = config.gridSize
+
     s = time.time()
     pyLAR.showImageMidSlice(reference_im_fn)
     pyLAR.affineRegistrationStep(software.EXE_BRAINSFit, im_fns, result_dir,
