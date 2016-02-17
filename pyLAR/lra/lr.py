@@ -19,14 +19,6 @@
 
 """Low rank decomposition of a set of images
 
-Command line arguments (See command line help: -h):
----------------------------------------------------
-    Required:
-        --configFN (string): Parameter configuration file.
-        --configSoftware (string): Software configuration file.
-    Optional:
-        --HistogramMatching (boolean) that overwrites configuration file histogram matching parameter.
-
 Configuration file must contain:
 --------------------------------
     lamda (float): the tuning parameter that weights between the low-rank component and the sparse component.

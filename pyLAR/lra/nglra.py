@@ -19,12 +19,6 @@
 
 """ Unbiased low-rank atlas creation from a selection of images
 
-Command line arguments (See command line help: -h):
----------------------------------------------------
-    Required:
-        --configFN (string): Parameter configuration file.
-        --configSoftware (string): Software configuration file.
-
 Configuration file must contain:
 --------------------------------
     lamda (float): the tuning parameter that weights between the low-rank component and the sparse component.

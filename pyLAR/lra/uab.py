@@ -19,12 +19,6 @@
 
 """ Unbiased atlas creation from a selection of images
 
-Command line arguments (See command line help: -h):
----------------------------------------------------
-    Required:
-        --configFN (string): Parameter configuration file.
-        --configSoftware (string): Software configuration file.
-
 Configuration file must contain:
 --------------------------------
     fileListFN (string): File containing path to input images.
