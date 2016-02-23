@@ -25,10 +25,14 @@ Functions that conveniently process multiple images in a row, from a given selec
 import os
 import pyLAR
 import SimpleITK as sitk
+import logging
 
 def affineRegistrationStep(EXE_BRAINSFit, im_fns, result_dir, selection, reference_im_fn):
     """Affine registering each input image to the reference(healthy atlas) image."""
     num_of_data = len(selection)
+    log = logging.getLogger(__name__)
+    log.info('affineRegistrationStep')
+    log.info('Selection: '+repr(selection))
     for i in range(num_of_data):
         outputIm = os.path.join(result_dir, 'L0_Iter0_' + str(i) + '.nrrd')
         pyLAR.AffineReg(EXE_BRAINSFit, reference_im_fn, im_fns[selection[i]], outputIm, None)
@@ -38,6 +42,9 @@ def affineRegistrationStep(EXE_BRAINSFit, im_fns, result_dir, selection, referen
 def rigidRegistrationStep(EXE_BRAINSFit, im_fns, result_dir, selection, reference_im_fn):
     """Rigid registering each input image to the reference(healthy atlas) image."""
     num_of_data = len(selection)
+    log = logging.getLogger(__name__)
+    log.info('rigidRegistrationStep')
+    log.info('Selection: '+repr(selection))
     for i in range(num_of_data):
         outputIm = os.path.join(result_dir, 'L0_' + str(i) + '.nrrd')
         pyLAR.RigidReg(EXE_BRAINSFit, reference_im_fn, im_fns[selection[i]], outputIm, None)
@@ -46,8 +53,10 @@ def rigidRegistrationStep(EXE_BRAINSFit, im_fns, result_dir, selection, referenc
 
 def histogramMatchingStep(selection, result_dir ):
     """Histogram matching preprocessing."""
-    print "Histogram matching"
     num_of_data = len(selection)
+    log = logging.getLogger(__name__)
+    log.info('histogramMatchingStep')
+    log.info('Selection: '+repr(selection))
     for i in range(0, num_of_data):
         inIm = os.path.join(result_dir, 'L0_Iter0_' + str(i) + '.nrrd')
         refIm = os.path.join(result_dir, 'L0_Iter0_' + str(0) + '.nrrd')
@@ -58,6 +67,9 @@ def histogramMatchingStep(selection, result_dir ):
 
 def normalizeIntensityStep(selection, result_dir):
     num_of_data = len(selection)
+    log = logging.getLogger(__name__)
+    log.info('normalizeIntensityStep')
+    log.info('Selection: '+repr(selection))
     for i in range(num_of_data):
         inIm = os.path.join(result_dir, 'L0_Iter0_' + str(i) + '.nrrd')
         outIm = os.path.join(result_dir, 'L0_Iter0_' + str(i) + '.nrrd')
