@@ -28,7 +28,7 @@ Configuration file must contain:
     reference_im_fn (string): reference image used for the registration.
     registration (string): 'affine' or 'rigid'
 
-Optional for 'set_and_run'/required for 'run_low_rank':
+Optional for 'check_requirements'/required for 'run':
 ----------------------------------------------------
     histogram_matching (boolean): If not specified or set to False, no histogram matching performed.
 
