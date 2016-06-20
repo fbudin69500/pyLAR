@@ -79,7 +79,21 @@ def readTxtIntoList(filename):
     log.info('Reading text file into list: ' + filename)
     with open(filename) as f:
         flist = f.read().splitlines()
-    return flist
+    flist_no_space = []
+    # Replace space character by backslash and space if there is
+    # not already a backslash before the space. If this step is not
+    # performed, an error occurs as the file is not found. Since
+    # input files paths are saves in a text file in the output
+    # directory, the output text file will contain the modified,
+    # i.e with a backlash, file name. Therefore both cases, with
+    # and without a backslash need to be handled.
+    for line in flist:
+        m=re.findall('[^\\\\] ',line)
+        for element in m:
+            element_no_space = element.replace(' ','\ ')
+            line=line.replace(element,element_no_space)
+        flist_no_space.append(line)
+    return flist_no_space
 
 
 def writeTxtFromList(filename, content):
